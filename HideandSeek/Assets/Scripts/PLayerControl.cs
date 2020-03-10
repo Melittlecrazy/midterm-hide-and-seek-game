@@ -5,29 +5,34 @@ using UnityEngine;
 public class PLayerControl : MonoBehaviour
 {
     private int walkingSpeed= 9;
+    private Rigidbody player;
+    public float jumpForce;
+    public float gravityModifier;
+
+    public float horizontalInput;
+    public float verticalInput;
+
     void Start()
     {
-        
+        player = GetComponent<Rigidbody>();
+        Physics.gravity *= gravityModifier;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.RightArrow))
-        { 
-            transform.Translate(Vector3.right * Time.deltaTime * walkingSpeed); 
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
+
+        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * walkingSpeed);
+        transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * walkingSpeed);
+     
+
+        if (Input.GetKeyDown(KeyCode.Space)){player.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);}
+
+        if (Input.GetKey(KeyCode.Z))
         {
-            transform.Translate(Vector3.left * Time.deltaTime * walkingSpeed);
-        }
-        else if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime * walkingSpeed);
-        }
-        else if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.Translate(Vector3.back * Time.deltaTime * walkingSpeed);
+
         }
     }
 }
