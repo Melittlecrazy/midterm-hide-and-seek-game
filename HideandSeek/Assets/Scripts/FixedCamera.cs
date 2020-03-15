@@ -5,6 +5,7 @@ using UnityEngine;
 public class FixedCamera : MonoBehaviour
 {
     public GameObject player;
+    public Vector3 offset;
 
     void Start()
     {
@@ -14,6 +15,7 @@ public class FixedCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = player.transform.position + new Vector3(-9,2,0);
+        offset = transform.position - player.transform.position;
+        transform.position = player.transform.position + offset;
     }
 }

@@ -24,15 +24,12 @@ public class PLayerControl : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 
-        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * walkingSpeed);
+        transform.Rotate(Vector3.up * horizontalInput * walkingSpeed);
         transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * walkingSpeed);
      
 
         if (Input.GetKeyDown(KeyCode.Space)){player.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);}
 
-        if (Input.GetKey(KeyCode.Z))
-        {
-
-        }
+        if (GameOver.IsGameOver) {  }//is suppose to freeze player inplace.
     }
 }
