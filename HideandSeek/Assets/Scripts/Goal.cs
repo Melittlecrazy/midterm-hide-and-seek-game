@@ -6,17 +6,20 @@ using UnityEngine.UI;
 public class Goal : MonoBehaviour
 {
     public GameObject winText;
+    public GameObject pointLight;
     public Text score;
     private int count;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         count = 0;
     }
 
     private void OnTriggerEnter(Collider other)
     {
+            
         if (other.tag == "Player" && !GameOver.IsGameOver)
         {
             count = count + 1;
@@ -25,9 +28,12 @@ public class Goal : MonoBehaviour
             {
                 winText.SetActive(true);
             }
-            Destroy(this.gameObject);
+            gameObject.GetComponent<Renderer>().enabled = false;
+            gameObject.GetComponent<Collider>().enabled = false;
+            pointLight.SetActive(false);
         }
     }
+   
 
     void Update()
     {

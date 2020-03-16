@@ -8,6 +8,7 @@ public class Seeker : MonoBehaviour
 
     public float rotationSpeed;
     public GameObject loseText;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +18,15 @@ public class Seeker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.up * rotationSpeed);
         transform.Translate(Vector3.forward * Time.deltaTime * 1);
-    }
+        //if (true)
+        //{
 
+        // transform.Rotate(Vector3.up * rotationSpeed);
+
+        //}
+    }
+   
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -28,5 +34,6 @@ public class Seeker : MonoBehaviour
             loseText.SetActive(true);
             GameOver.IsGameOver = true;
         }
+
     }
 }
