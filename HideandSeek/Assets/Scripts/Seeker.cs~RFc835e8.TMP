@@ -1,0 +1,51 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+public class Seeker : MonoBehaviour
+{
+    Animator anim;
+    NavMeshAgent agent;
+    public int stopAndLook = 0;
+    public GameObject loseText;
+
+    public Transform[] points;
+
+    public static bool IsGameOver = false;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+        OnMove();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (!agent.pathPending && agent.remainingDistance < 0.5f) OnMove();
+        //anim.SetBool("move", shouldMove);
+        RaycastHit hit;
+        ///if ()agent.destination = hitInfo.point;
+        
+    }
+   
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            loseText.SetActive(true);
+            GameOver.IsGameOver = true;
+        }
+
+    }
+    void OnMove()
+    {
+        if (points.Length == 0) return;
+        agent.destination = points[stopAndLook].position;
+        stopAndLook = (stopAndLook + 1) % points.Length;
+        IsGameOver = true;
+    }
+}

@@ -5,26 +5,27 @@ using UnityEngine.AI;
 
 public class Seeker : MonoBehaviour
 {
-
-    public float rotationSpeed;
+    Animator anim;
+    public float stopAndLook = 10.0f;
     public GameObject loseText;
-    
+    public GameObject body;
+    public float xRange = 10;
+
+    public static bool IsGameOver = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         
     }
 
     // Update is called once per frame
     void Update()
-    {
-        transform.Translate(Vector3.forward * Time.deltaTime * 1);
-        //if (true)
-        //{
-
-        // transform.Rotate(Vector3.up * rotationSpeed);
-
-        //}
+    { 
+            //anim.SetBool("move",true);
+        transform.Translate(Vector3.forward *Time.deltaTime* stopAndLook);
+        
     }
    
     private void OnTriggerEnter(Collider other)
@@ -34,6 +35,10 @@ public class Seeker : MonoBehaviour
             loseText.SetActive(true);
             GameOver.IsGameOver = true;
         }
-
+        if (other.tag == "tree")
+        {
+            body.transform.Rotate(0,180,0,0);
+        }
     }
+    
 }
