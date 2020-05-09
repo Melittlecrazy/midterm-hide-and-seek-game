@@ -10,6 +10,10 @@ public class PLayerControl : MonoBehaviour
     private int walkingSpeed= 5;
     private Rigidbody player;
     public GameObject controls;
+    public GameObject keyCam;
+    public GameObject doorCam;
+    public GameObject keyText;
+    public GameObject doorText;
     public float jumpForce;
     public float gravityModifier;
     public float horizontalInput;
@@ -44,12 +48,29 @@ public class PLayerControl : MonoBehaviour
         
             if (Input.GetKeyDown(KeyCode.R))
             {
-                SceneManager.LoadScene("Level");
+                SceneManager.LoadScene("Level3");
                 GameOver.IsGameOver = false;
             }
-        if (Input.GetKey(KeyCode.X)) controls.SetActive(false); ;
+        if (Input.GetKey(KeyCode.X))
+        {
+            controls.SetActive(false);
+        }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            keyCam.SetActive(false);
+            keyText.SetActive(false);
+            
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            doorCam.SetActive(false);
+            doorText.SetActive(false);
+        }
 
-        if (Input.GetKeyDown(KeyCode.Space)){player.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            player.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
 
         //if (GameOver.IsGameOver) { player.simulated = false; }//is suppose to freeze player inplace.
     }

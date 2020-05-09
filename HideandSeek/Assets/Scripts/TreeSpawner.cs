@@ -5,15 +5,20 @@ using UnityEngine;
 public class TreeSpawner : MonoBehaviour
 {
     public GameObject[] treesPrefab;
-    private float spawnRangeX = 20;
-    private float spawnPosZ = -10;
+    public float spawnRangeX = 20;
+    public float spawnDepth = -20;
+    public float spawnHeight = .5f;
+    public float spawnPosZ = -10;
+    public float spawnRangeZ = 15;
+    public float spawnAmount = 420;
+
    
     void Start()
     {
-        for (int i = 0; i <= 420; i++ )
+        for (int i = 0; i <= spawnAmount; i++ )
         {
         int treeIndex = Random.Range(0, treesPrefab.Length);
-        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, Random.Range(15, spawnPosZ));
+        Vector3 spawnPos = new Vector3(Random.Range(spawnDepth, spawnRangeX), spawnHeight, Random.Range(spawnRangeZ, spawnPosZ));
         Instantiate(treesPrefab[treeIndex], spawnPos, treesPrefab[treeIndex].transform.rotation);
         }
     }

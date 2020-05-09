@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-    public GameObject winText;
+    public GameObject key;
+    public GameObject keyText;
     public GameObject pointLight;
+
+
 
     public Text score;
     private int count;
@@ -19,19 +23,18 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-            
+
         if (other.tag == "Player" && !GameOver.IsGameOver)
         {
             count = count + 1;
-            score.text = "Score: " + count.ToString();
+            score.text = "Souls: " + count.ToString() + "/5";
             if (count == 1)
             {
-
-                transform.position = transform.position + new Vector3(22,0,-18);
+                transform.position = transform.position + new Vector3(22, 0, -18);
             }
             else if (count == 2)
             {
-                transform.position = transform.position + new Vector3(0,0,35);
+                transform.position = transform.position + new Vector3(0, 0, 35);
             }
             else if (count == 3)
             {
@@ -43,11 +46,12 @@ public class Goal : MonoBehaviour
             }
             if (count == 5)
             {
-                winText.SetActive(true);
+                key.SetActive(true);
+                keyText.SetActive(true);
+                transform.position = transform.position + new Vector3(0, -5, 0);
             }
             //gameObject.GetComponent<Renderer>().enabled = false;
             //gameObject.GetComponent<Collider>().enabled = false;
-            //pointLight.SetActive(false);
         }
     }
    

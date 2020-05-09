@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class FixedCamera : MonoBehaviour
 {
-    public GameObject player;
+    
     public Vector3 offset;
+    public Transform target;
+    public float smooth = 0.125f;
 
     void Start()
     {
@@ -13,9 +15,11 @@ public class FixedCamera : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void fixedUpdate()
     {
-        offset = transform.position - player.transform.position;
-        transform.position = player.transform.position + offset;
+        Vector3 desiredPosition = target.position + offset;
+        Vector3 smoothPos = Vector3.Lerp(transform.position, desiredPosition, smooth);
+        offset = transform.position - target.transform.position;
+        transform.position = desiredPosition;
     }
 }
