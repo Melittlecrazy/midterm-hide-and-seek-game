@@ -92,14 +92,8 @@
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>C:/Users/Marc G/Documents/GitHub/midterm-hide-and-seek-game/HideandSeek/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>C:/Users/Marc G/Documents/GitHub/midterm-hide-and-seek-game/HideandSeek/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>C:/Users/Marc G/Documents/GitHub/midterm-hide-and-seek-game/HideandSeek/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>C:/Users/Marc G/Documents/GitHub/midterm-hide-and-seek-game/HideandSeek/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Users/Marc G/Documents/GitHub/midterm-hide-and-seek-game/HideandSeek/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>

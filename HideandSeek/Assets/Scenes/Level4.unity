@@ -691,7 +691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &247924740
 RectTransform:
   m_ObjectHideFlags: 0
@@ -742,8 +742,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "      Objective: Collect orbs to survie \n      the seekers who want you
-    dead."
+  m_Text: '      Objective: Find the real key to win.'
 --- !u!222 &247924742
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2404,6 +2403,7 @@ GameObject:
   - component: {fileID: 700173168}
   - component: {fileID: 700173167}
   - component: {fileID: 700173166}
+  - component: {fileID: 700173170}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Door
@@ -2487,6 +2487,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &700173170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700173165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b678e2d7b0e2bcc42b90f75afc4f7ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &717030751
 GameObject:
   m_ObjectHideFlags: 0
@@ -3649,7 +3661,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: This door. Press Esc to continue...
+  m_Text: This door. Press LShift to continue...
 --- !u!222 &1072409866
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7530,7 +7542,7 @@ GameObject:
   - component: {fileID: 1823923939}
   - component: {fileID: 1823923938}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Main Camera (1)
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
